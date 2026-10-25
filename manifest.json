@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Eksi Filtre",
+  "version": "1.0.0",
+  "description": "Eksi Sozluk sol paneldeki basliklari filtreler. Kedini sevmedigin basliklarin yanindaki butonla onlari listeden kaldir.",
+  "permissions": ["storage"],
+  "host_permissions": ["*://eksisozluk.com/*", "*://*.eksisozluk.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://eksisozluk.com/*", "*://*.eksisozluk.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_title": "Eksi Filtre",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "icons/icon128.png"
+  }
+}

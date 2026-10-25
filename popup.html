@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eksi Filtre</title>
+  <style>
+    :root {
+      --bg: #1e1e1e;
+      --fg: #e6e6e6;
+      --muted: #9a9a9a;
+      --accent: #f0a500;
+      --danger: #e5484d;
+      --border: #333;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      width: 320px;
+      font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    header .count {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    main { padding: 10px 14px 14px; }
+    .empty {
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+      padding: 18px 0;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 6px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      word-break: break-word;
+    }
+    li:last-child { border-bottom: none; }
+    li .title { flex: 1; }
+    button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    button.remove:hover { color: var(--danger); }
+    button.danger {
+      color: var(--danger);
+      width: 100%;
+      padding: 8px;
+      border: 1px solid var(--danger);
+      border-radius: 6px;
+      background: transparent;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+    button.danger:hover { background: rgba(229, 72, 77, 0.12); }
+    .hint {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Eksi Filtre</h1>
+    <span class="count" id="count">0 baslik</span>
+  </header>
+  <main>
+    <p class="empty" id="empty" hidden>Henuz filtrelenmis baslik yok.<br />Sol panelde her basligin yanindaki &times; butonuyla basliklari buraya ekleyebilirsin.</p>
+    <ul id="list"></ul>
+    <button class="danger" id="clearAll" hidden>Tumu&uuml;n&uuml; Kald&#305;r</button>
+    <p class="hint" id="hint" hidden>Filtrelenmis basliklar sayfa yenilense bile sol panelden gizlenir. Kalici olarak silmek icin yanindaki &times; kullan.</p>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
